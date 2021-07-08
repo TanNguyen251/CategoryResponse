@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/grocery_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/grocery_setting"
+        android:title="Settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:showAsAction="never"/>
+    <item android:id="@+id/grocery_logout"
+        android:title="Log out"
+        app:showAsAction="never"/>
+</menu>

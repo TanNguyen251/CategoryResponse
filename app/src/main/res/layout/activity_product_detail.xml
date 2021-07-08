@@ -1,0 +1,69 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include layout="@layout/grocery_toolbar"/>
+
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/product_detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/product_detail_name"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_detail_image"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/product_detail_unit"
+            android:text="Unit"
+            android:textSize="24sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/product_detail_name"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+        <TextView
+            android:id="@+id/product_detail_sale_price"
+            android:text="Sale price"
+            android:textColor="@color/pure_red"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:id="@+id/product_detail_price"
+            android:text="Price"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/strikethrough_shape"
+            android:layout_toRightOf="@id/product_detail_sale_price"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="8dp"/>
+
+        <Button
+            android:id="@+id/product_detail_add_to_cart"
+            android:text="Add to cart"
+            android:drawableLeft="@drawable/ic_baseline_add_shopping_cart_24"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

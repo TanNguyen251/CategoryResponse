@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/row_address_type"
+        android:text="Type"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/row_address_house"
+        android:text="House number "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/row_address_type"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/row_address_street"
+        android:text="Street address,"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/row_address_type"
+        app:layout_constraintStart_toEndOf="@id/row_address_house"/>
+    <TextView
+        android:id="@+id/row_address_city"
+        android:text="City, "
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/row_address_house"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/row_address_pincode"
+        android:text="Pincode"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/row_address_house"
+        app:layout_constraintStart_toEndOf="@id/row_address_city"/>
+
+    <Button
+        android:id="@+id/row_address_button_remove"
+        android:drawableTop="@drawable/ic_baseline_delete_forever_24"
+        android:layout_width="24dp"
+        android:layout_height="48dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
