@@ -45,6 +45,7 @@ class GroceryActivity : AppCompatActivity(), CategoryAdapter.OnAdapterListener{
             android.R.id.home -> {
                 var loginManager = LoginManager(this)
                 loginManager.logout()
+                finish()
             }
             R.id.grocery_cart -> {
                 startActivity(Intent(this, CheckoutActivity::class.java))

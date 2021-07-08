@@ -24,8 +24,8 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/order_detail_date"
-            android:text="Date of purchase: "
+            android:id="@+id/order_detail_orderNo"
+            android:text="Order number: "
             android:textSize="18sp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -41,7 +41,7 @@
             android:layout_marginBottom="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/order_detail_date"
+            app:layout_constraintTop_toBottomOf="@id/order_detail_orderNo"
             app:layout_constraintStart_toStartOf="parent"/>
         <TextView
             android:id="@+id/order_detail_user_address"

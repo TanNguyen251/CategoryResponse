@@ -17,6 +17,7 @@
         <Button
             android:id="@+id/address_button_add"
             android:text="Add Address"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
