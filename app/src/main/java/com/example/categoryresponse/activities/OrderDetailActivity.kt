@@ -1,17 +1,28 @@
 package com.example.categoryresponse.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.example.categoryresponse.R
 import com.example.categoryresponse.adapters.OrderDetailAdapter
+import com.example.categoryresponse.configs.EndpointsConfig
+import com.example.categoryresponse.configs.KeyConfig
 import com.example.categoryresponse.models.OrderHistory
 import com.example.categoryresponse.models.OrderProduct
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_order_detail.*
 import kotlinx.android.synthetic.main.grocery_toolbar.*
+import org.json.JSONArray
+import org.json.JSONObject
 
 class OrderDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,5 +59,36 @@ class OrderDetailActivity : AppCompatActivity() {
                 order_detail_rv_product.context,
                 LinearLayoutManager(this).orientation)
         )
+        order_detail_button_reorder.setOnClickListener{
+            reorder(orderHistory)
+        }
+    }
+
+    private fun reorder(orderHistory: OrderHistory){
+        var jsonObject = JSONObject()
+        jsonObject
+            .put(KeyConfig.ADDRESS_USER, orderHistory.userId)
+            .put("orderStatus", orderHistory.orderStatus)
+            .put("orderSummary", JSONObject(Gson().toJson(orderHistory.orderSummary)))
+            .put("user", JSONObject(Gson().toJson(orderHistory.user)))
+            .put("shippingAddress", JSONObject(Gson().toJson(orderHistory.shippingAddress)))
+            .put("payment", JSONObject(Gson().toJson(orderHistory.payment)))
+            .put("products", JSONArray(Gson().toJson(orderHistory.products)))
+        Log.d("abcd", jsonObject.toString())
+        var requestQueue = Volley.newRequestQueue(this)
+        var request = JsonObjectRequest(
+            Request.Method.POST,
+            EndpointsConfig.getOrdersRegisterUrl(),
+            jsonObject,
+            {
+                Log.d("abcd", "Re-order successfully")
+            },
+            {
+                Log.d("abcd", it.message.toString())
+            }
+        )
+        requestQueue.add(request)
+        startActivity(Intent(this,OrderHistoryActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY))
+        finish()
     }
 }
