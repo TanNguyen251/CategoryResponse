@@ -41,7 +41,7 @@ data class OrderProduct(
     val image: String,
     val mrp: Float,
     val price: Float,
-    val quantity: Float,
+    val quantity: Int,
     val productName: String
 ): Serializable
 
